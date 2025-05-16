@@ -3,6 +3,7 @@ package br.com.seguros.seguros.controller;
 import br.com.seguros.seguros.controller.dtos.CotacaoRequest;
 import br.com.seguros.seguros.controller.dtos.CotacaoResponse;
 import br.com.seguros.seguros.service.CotacaoService;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class CotacaoController {
      CotacaoService service;
 
     @PostMapping
-    public ResponseEntity<CotacaoResponse> criarCotacao(@RequestBody CotacaoRequest request){
+    public ResponseEntity<CotacaoResponse> criarCotacao(@RequestBody @Valid CotacaoRequest request){
         log.info("Chamando o serviço de cotação");
         return ResponseEntity.ok(service.criarCotacao(request));
     }
