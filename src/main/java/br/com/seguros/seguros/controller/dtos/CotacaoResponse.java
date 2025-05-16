@@ -12,8 +12,5 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Builder
 public class CotacaoResponse {
-    private String name;
-    private String location;
-    private BigDecimal value;
-
+    private CustomerResponse customer;
 }
